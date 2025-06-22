@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu FF Antiband - Step 1</title>
+  <link rel="icon" href="https://files.catbox.moe/jtevok.png" type="image/png">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: transparent;
+    }
+
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    #video-toggle {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 15px;
+      cursor: pointer;
+      z-index: 2;
+      font-size: 14px;
+    }
+
+    .step-container, .menu-container {
+      width: 90vw;
+      max-width: 450px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 1;
+      margin: auto;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .step-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .step-password {
+      font-size: 20px;
+      margin: 15px 0;
+      word-break: break-word;
+      line-height: 1.6;
+    }
+
+    .step-button {
+      background-color: #00aaff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    .step-button:hover {
+      background-color: #008ecc;
+    }
+
+    .menu-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .menu-options {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 10px 0;
+    }
+
+    .option {
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    .option-button {
+      background-color: #00aaff;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .option-button:hover {
+      background-color: #008ecc;
+    }
+
+    .menu-footer {
+      font-size: 14px;
+      color: #ccc;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Video nền -->
+  <video autoplay muted loop playsinline preload="auto" id="bg-video">
+    <source src="https://files.catbox.moe/7i23ij.mp4" type="video/mp4">
+    Trình duyệt của bạn không hỗ trợ video.
+  </video>
+
+  <!-- Nhạc nền -->
+  <audio id="bg-audio" preload="auto">
+    <source src="https://files.catbox.moe/xwrq0z.mp3" type="audio/mpeg">
+    Trình duyệt của bạn không hỗ trợ âm thanh.
+  </audio>
+
+  <!-- Nút điều khiển video & nhạc -->
+  <button id="video-toggle">⏸ Dừng</button>
+
+  <!-- Step 1: Hiển thị mật khẩu -->
+  <div class="step-container" id="step1">
+    <div class="step-title">🔐 Mật khẩu để cài đặt</div>
+    <div class="step-password">
+      🐠😘😡😘🐠💀🎯👍😅🎯😂😁😘🤣😘😘😂🚬😘😡💀🎯😃💔💔🙂😘🙂🤓🥲🥲🤓🤨📱🎯☺️😙❌😙👍😚😄😃😚😍😒😶‍🌫️😰😒😓😒😰😴🤤🤤🫣😵‍💫🫣😵‍💫😵😴👎🏻🙌🏻🤡👎🏻🤡🙌🏻🤡👎🏻🙌🏻💩👎🏻😈😈👎🏻
+    </div>
+    <button class="step-button" onclick="goToMenu()">Tiếp tục</button>
+  </div>
+
+  <!-- Menu chính (ẩn lúc đầu) -->
+  <div class="menu-container" id="menu" style="display: none;">
+    <div class="menu-title">Menu FF Antiband</div>
+
+    <div class="menu-options">
+      <div class="option">
+        <span>Aimhead 💀</span>
+        <a class="option-button" href="https://www.mediafire.com/file/qxbfluqdt4xfie2/Aim.mobileconfig/file" target="_blank">Cài đặt</a>
+      </div>
+      <div class="option">
+        <span>Norecoil 🎯</span>
+        <a class="option-button" href="https://www.mediafire.com/file/k1r47340z2katde/Norecoil.mobileconfig/file" target="_blank">Cài đặt</a>
+      </div>
+      <div class="option">
+        <span>Ping</span>
+        <button class="option-button">Cài đặt</button>
+      </div>
+      <div class="option">
+        <span>Sensitivity 📱</span>
+        <button class="option-button">Cài đặt</button>
+      </div>
+    </div>
+
+    <div class="menu-footer">Menu By Bùi Hoàng Hải</div>
+  </div>
+
+  <script>
+    const video = document.getElementById('bg-video');
+    const audio = document.getElementById('bg-audio');
+    const toggleButton = document.getElementById('video-toggle');
+
+    toggleButton.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        audio.play();
+        toggleButton.textContent = '⏸ Dừng';
+      } else {
+        video.pause();
+        audio.pause();
+        toggleButton.textContent = '▶️ Phát';
+      }
+    });
+
+    function goToMenu() {
+      document.getElementById('step1').style.display = 'none';
+      document.getElementById('menu').style.display = 'flex';
+    }
+  </script>
+
+</body>
+</html>
